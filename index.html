@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Tap for Hope</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Script Adsgram -->
+    <script async src="https://adsgram.ai/js/adsgram.js"></script>
+</head>
+<body>
+    <div class="app">
+        <h1>Tap for Hope</h1>
+
+        <div class="stats">
+            <p>Click: <span id="clicks">0</span></p>
+            <p>Energia: <span id="energy">200</span></p>
+        </div>
+
+        <button id="tapButton">TAP</button>
+
+        <button id="rechargeButton" class="hidden">Ricarica energia</button>
+
+        <button id="offersButton">Offerte</button>
+        <button id="leaderboardButton">Classifica</button>
+
+        <div id="leaderboard" class="panel hidden"></div>
+
+        <!-- Contenitore Adsgram -->
+        <div id="adsgram" class="ads-container"></div>
+    </div>
+
+    <!-- Script locali -->
+    <script src="ads.js"></script>
+    <script src="api.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
