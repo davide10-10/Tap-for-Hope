@@ -1,40 +1,39 @@
-// QUI metteremo i tuoi blockId Adsgram
-// Per ora metto un placeholder
-
-let ad = null;
+let rewardAd = null;
+let interstitialAd = null;
 
 window.addEventListener("load", () => {
-    ad = new Adsgram({
-        blockId: "TUO_BLOCK_ID_PRINCIPALE", // <-- qui metterai il tuo
+    // Rewarded ad (per ricaricare energia o offerte)
+    rewardAd = new Adsgram({
+        blockId: "34522",
+        containerId: "adsgram"
+    });
+
+    // Interstitial ad (per mostrare ads normali)
+    interstitialAd = new Adsgram({
+        blockId: "34523",
         containerId: "adsgram"
     });
 });
 
-// mostra una singola ad e ritorna una Promisewindow.addEventListener("load", () => {
-    ad = new Adsgram({
-        blockId: "TUO_BLOCK_ID_PRINCIPALE", // <-- qui metterai il tuo
-        containerId: "adsgram"
-    });
-});
-
-// mostra una singola ad e ritorna una Promise
+// Mostra una singola interstitial
 function showAdOnce() {
-    if (!ad) return Promise.resolve();
-    return ad.show();
+    if (!interstitialAd) return Promise.resolve();
+    return interstitialAd.show();
 }
 
-// per ricaricare energia
+// Mostra rewarded per ricaricare energia
 function showAdToRecharge() {
-    return showAdOnce();
+    if (!rewardAd) return Promise.resolve();
+    return rewardAd.show();
 }
 
-// esempio per offerte (più ads di fila)
+// Mostra X rewarded ads per ottenere una ricompensa
 function showAdsForOffer(adsCount) {
     return new Promise((resolve) => {
         let watched = 0;
 
         function next() {
-            showAdOnce().then(() => {
+            rewardAd.show().then(() => {
                 watched++;
                 if (watched < adsCount) next();
                 else resolve();
