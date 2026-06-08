@@ -1,21 +1,20 @@
 let energy = 200;
-let clicks = 0;
+let coins = 0;
 
 const tapButton = document.getElementById("tapButton");
 const rechargeButton = document.getElementById("rechargeButton");
-const offersButton = document.getElementById("offersButton");
 const leaderboardButton = document.getElementById("leaderboardButton");
-const clicksSpan = document.getElementById("clicks");
-const energySpan = document.getElementById("energy");
+const offersButton = document.getElementById("offersButton");
+
+const energyFill = document.getElementById("energyFill");
+const energyText = document.getElementById("energyText");
+const coinsSpan = document.getElementById("coins");
 const leaderboardDiv = document.getElementById("leaderboard");
 
-// se sei in Telegram WebApp, puoi usare:
-// const tg = window.Telegram?.WebApp;
-// const user = tg?.initDataUnsafe?.user;
-
 function updateUI() {
-    clicksSpan.textContent = clicks;
-    energySpan.textContent = energy;
+    coinsSpan.textContent = coins;
+    energyText.textContent = energy;
+    energyFill.style.width = (energy / 200 * 100) + "%";
 
     if (energy <= 0) {
         rechargeButton.classList.remove("hidden");
@@ -27,16 +26,15 @@ function updateUI() {
 }
 
 tapButton.addEventListener("click", () => {
-    if (energy <= 0) {
-        return;
-    }
+    if (energy <= 0) return;
 
     energy--;
-    clicks++;
-    updateUI();
+    coins++;
 
-    // qui in futuro puoi salvare periodicamente i click
-    // es: ogni 50 click
+    tapButton.style.transform = "scale(0.85)";
+    setTimeout(() => tapButton.style.transform = "scale(1)", 100);
+
+    updateUI();
 });
 
 rechargeButton.addEventListener("click", () => {
@@ -47,34 +45,22 @@ rechargeButton.addEventListener("click", () => {
 });
 
 offersButton.addEventListener("click", () => {
-    // esempio: guarda 5 ads → +1000 click
-    const adsCount = 5;
-    const reward = 1000;
-
-    showAdsForOffer(adsCount).then(() => {
-        clicks += reward;
+    showAdsForOffer(5).then(() => {
+        coins += 1000;
         updateUI();
     });
 });
 
 leaderboardButton.addEventListener("click", () => {
     leaderboardDiv.classList.remove("hidden");
-    leaderboardDiv.textContent = "Caricamento classifica...";
+    leaderboardDiv.textContent = "Caricamento...";
 
     loadLeaderboard().then(list => {
-        if (!list || list.length === 0) {
-            leaderboardDiv.textContent = "Nessun dato ancora.";
-            return;
-        }
-
         leaderboardDiv.innerHTML = "";
-        list.forEach((item, index) => {
-            const row = document.createElement("div");
-            row.textContent = `${index + 1}. @${item.username || "utente"} – ${item.clicks} click`;
-            leaderboardDiv.appendChild(row);
+        list.forEach((item, i) => {
+            leaderboardDiv.innerHTML += `${i+1}. @${item.username} — ${item.clicks} ❤️<br>`;
         });
     });
 });
 
-// inizializza UI
 updateUI();
