@@ -4,37 +4,45 @@
     <meta charset="UTF-8">
     <title>Tap for Hope</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="style.css">
-
-    <!-- Script Adsgram -->
     <script async src="https://adsgram.ai/js/adsgram.js"></script>
 </head>
 <body>
-    <div class="app">
-        <h1>Tap for Hope</h1>
 
-        <div class="stats">
-            <p>Click: <span id="clicks">0</span></p>
-            <p>Energia: <span id="energy">200</span></p>
+<div class="app">
+
+    <header class="top">
+        <img src="logo.png" class="logo">
+        <div class="coins">
+            <span id="coins">0</span> 💰
         </div>
+    </header>
 
-        <button id="tapButton">TAP</button>
-
-        <button id="rechargeButton" class="hidden">Ricarica energia</button>
-
-        <button id="offersButton">Offerte</button>
-        <button id="leaderboardButton">Classifica</button>
-
-        <div id="leaderboard" class="panel hidden"></div>
-
-        <!-- Contenitore Adsgram -->
-        <div id="adsgram" class="ads-container"></div>
+    <div class="energy-box">
+        <span class="energy-icon">⚡</span>
+        <div class="energy-bar">
+            <div id="energyFill"></div>
+        </div>
+        <span id="energyText">200</span>
     </div>
 
-    <!-- Script locali -->
-    <script src="ads.js"></script>
-    <script src="api.js"></script>
-    <script src="game.js"></script>
+    <button id="tapButton" class="heart-btn">❤️</button>
+
+    <div class="buttons">
+        <button id="rechargeButton" class="small-btn hidden">Ricarica ⚡</button>
+        <button id="leaderboardButton" class="small-btn">Classifica 🏆</button>
+        <button id="offersButton" class="small-btn">Offerte 🎁</button>
+    </div>
+
+    <div id="leaderboard" class="panel hidden"></div>
+
+    <div id="adsgram"></div>
+
+</div>
+
+<script src="ads.js"></script>
+<script src="api.js"></script>
+<script src="game.js"></script>
+
 </body>
 </html>
