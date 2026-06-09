@@ -1,0 +1,96 @@
+body {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.logo {
+  width: 120px;
+}
+
+.counter {
+  font-size: 24px;
+  background: #333;
+  padding: 8px 15px;
+  border-radius: 10px;
+}
+
+.heart-container {
+  margin-top: 40px;
+}
+
+.heart {
+  width: 180px;
+  cursor: pointer;
+}
+
+.btn-green {
+  background: #2ecc71;
+  padding: 15px;
+  width: 80%;
+  margin: 20px auto;
+  border-radius: 12px;
+  font-size: 18px;
+  border: none;
+  color: #fff;
+}
+
+.btn-blue {
+  background: #3498db;
+  padding: 15px;
+  width: 80%;
+  margin: 10px auto;
+  border-radius: 12px;
+  font-size: 18px;
+  border: none;
+  color: #fff;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+}
+
+.nav-item {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Leaderboard */
+.title {
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.leaderboard {
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.lb-item {
+  background: #222;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lb-1 { background: #f1c40f; color: #000; }
+.lb-2 { background: #e67e22; }
+.lb-3 { background: #cd7f32; }
