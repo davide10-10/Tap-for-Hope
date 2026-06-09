@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tap for Hope</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="header">
+    <img src="logo.png" class="logo">
+    <div class="counter">
+      <span id="clicks">0</span> ❤️
+    </div>
+  </div>
+
+  <div class="heart-container">
+    <img src="heart.png" id="heart" class="heart">
+    <p class="click-text">Tap it!</p>
+  </div>
+
+  <button id="recharge-btn" class="btn-green">
+    RECHARGE ENERGY (AD)
+  </button>
+
+  <button id="reward-btn" class="btn-blue">
+    WATCH AN AD FOR 400 CLICKS
+  </button>
+
+  <div class="bottom-nav">
+    <div class="nav-item" onclick="window.location='index.html'">🏠</div>
+    <div class="nav-item" onclick="window.location='leaderboard.html'">📊</div>
+  </div>
+
+  <!-- Monetag SDK -->
+  <script src='//libtl.com/sdk.js'
+          data-zone='11123437'
+          data-sdk='show_11123437'></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
