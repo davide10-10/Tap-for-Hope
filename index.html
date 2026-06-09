@@ -1,48 +1,42 @@
 <!DOCTYPE html>
-<html lang="it">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Tap for Hope</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script async src="https://adsgram.ai/js/adsgram.js"></script>
+  <meta charset="UTF-8">
+  <title>Tap for Hope</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app">
-
-    <header class="top">
-        <img src="logo.png" class="logo">
-        <div class="coins">
-            <span id="coins">0</span> 💰
-        </div>
-    </header>
-
-    <div class="energy-box">
-        <span class="energy-icon">⚡</span>
-        <div class="energy-bar">
-            <div id="energyFill"></div>
-        </div>
-        <span id="energyText">200</span>
+  <div class="header">
+    <img src="logo.png" class="logo">
+    <div class="counter">
+      <span id="clicks">0</span> ❤️
     </div>
+  </div>
 
-    <button id="tapButton" class="heart-btn">❤️</button>
+  <div class="heart-container">
+    <img src="heart.png" id="heart" class="heart">
+    <p class="click-text">Tap it!</p>
+  </div>
 
-    <div class="buttons">
-        <button id="rechargeButton" class="small-btn hidden">Ricarica ⚡</button>
-        <button id="leaderboardButton" class="small-btn">Classifica 🏆</button>
-        <button id="offersButton" class="small-btn">Offerte 🎁</button>
-    </div>
+  <button id="recharge-btn" class="btn-green">
+    RECHARGE ENERGY (AD)
+  </button>
 
-    <div id="leaderboard" class="panel hidden"></div>
+  <button id="reward-btn" class="btn-blue">
+    WATCH AN AD FOR 400 CLICKS
+  </button>
 
-    <div id="adsgram"></div>
+  <div class="bottom-nav">
+    <div class="nav-item" id="home-btn">🏠</div>
+    <div class="nav-item" id="leaderboard-btn">📊</div>
+  </div>
 
-</div>
+  <!-- Monetag SDK -->
+  <script src='//libtl.com/sdk.js'
+          data-zone='11123437'
+          data-sdk='show_11123437'></script>
 
-<script src="ads.js"></script>
-<script src="api.js"></script>
-<script src="game.js"></script>
-
+  <script src="app.js"></script>
 </body>
 </html>
