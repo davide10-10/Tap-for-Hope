@@ -39,7 +39,7 @@ heart.addEventListener("click", async () => {
   clicksEl.innerText = data.clicks;
 });
 
-// Recharge energy with ad
+// Recharge energy with rewarded ad
 rechargeBtn.addEventListener("click", () => {
   show_11123437().then(() => {
     fetch(`${API_URL}/reward-energy`, {
@@ -48,13 +48,13 @@ rechargeBtn.addEventListener("click", () => {
       body: JSON.stringify({ telegramId })
     })
     .then(res => res.json())
-    .then(data => {
+    .then(() => {
       tg.showAlert("Energy recharged!");
     });
   });
 });
 
-// Reward 400 clicks with ad
+// Reward 400 clicks with rewarded ad
 rewardBtn.addEventListener("click", () => {
   show_11123437().then(() => {
     fetch(`${API_URL}/reward-clicks`, {
